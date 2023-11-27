@@ -1,0 +1,17 @@
+//
+//  AlbumViewController.swift
+//  MusicApp
+//
+//  Created by Başak Kaya on 3.11.2023.
+//
+
+import Foundation
+import UIKit
+
+class AlbumViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+}
