@@ -1,15 +1,14 @@
 //
-//  CategoryService.swift
+//  NetworkManager.swift
 //  MusicApp
 //
-//  Created by Başak Kaya on 2.11.2023.
+//  Created by Başak Kaya on 27.11.2023.
 //
 
 import Foundation
-import UIKit
 
-class CategoryService {
-    func fetchMusicData(url: String, onSuccess: @escaping(Dictionary<String, Any>) -> Void, onError: @escaping(String) -> Void) {
+class NetworkManager {
+    func fetchData(url: String, onSuccess: @escaping(Dictionary<String, Any>) -> Void, onError: @escaping(String) -> Void) {
         
         let url = URL(string: url)
         
