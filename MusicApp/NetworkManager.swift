@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    func fetchData(url: String, onSuccess: @escaping(Dictionary<String, Any>) -> Void, onError: @escaping(String) -> Void) {
+    func fetchData(url: String, onSuccess: @escaping(Data) -> Void, onError: @escaping(String) -> Void) {
         
         let url = URL(string: url)
         
@@ -21,13 +21,10 @@ class NetworkManager {
                 // 2.
                 if data != nil {
                     do {
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
                         //ASYNC
                         DispatchQueue.main.async {
-                        onSuccess(jsonResponse)
-                            
+                            onSuccess(data!)
                         }
-                        
                     } catch {
                         onError(error.localizedDescription)
                     }
