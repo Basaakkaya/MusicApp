@@ -7,13 +7,6 @@
 
 import Foundation
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let artistDetailTracklistResponseModel = try? JSONDecoder().decode(ArtistDetailTracklistResponseModel.self, from: jsonData)
-
-import Foundation
-
 // MARK: - ArtistDetailTracklistResponseModel
 struct ArtistDetailTracklistResponseModel: Codable {
     let data: [Datum]?
@@ -25,8 +18,7 @@ struct ArtistDetailTracklistResponseModel: Codable {
 struct Datum: Codable {
     let id: Int?
     let readable: Bool?
-    let title, titleShort: String?
-    let titleVersion: TitleVersion?
+    let title, titleShort, titleVersion: String?
     let link: String?
     let duration, rank: Int?
     let explicitLyrics: Bool?
@@ -34,9 +26,9 @@ struct Datum: Codable {
     let preview: String?
     let contributors: [Contributor]?
     let md5Image: String?
-    let artist: Artist?
+    let artist: ArtistDetailTracklistArtistElement?
     let album: Album?
-    let type: DatumType?
+    let type: String?
 
     enum CodingKeys: String, CodingKey {
         case id, readable, title
@@ -60,7 +52,7 @@ struct Album: Codable {
     let coverSmall, coverMedium, coverBig, coverXl: String?
     let md5Image: String?
     let tracklist: String?
-    let type: AlbumType?
+    let type: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title, cover
@@ -73,20 +65,12 @@ struct Album: Codable {
     }
 }
 
-enum AlbumType: String, Codable {
-    case album = "album"
-}
-
 // MARK: - Artist
-struct Artist: Codable {
+struct ArtistDetailTracklistArtistElement: Codable {
     let id: Int?
     let name: String?
     let tracklist: String?
-    let type: ArtistType?
-}
-
-enum ArtistType: String, Codable {
-    case artist = "artist"
+    let type: String?
 }
 
 // MARK: - Contributor
@@ -97,8 +81,7 @@ struct Contributor: Codable {
     let pictureSmall, pictureMedium, pictureBig, pictureXl: String?
     let radio: Bool?
     let tracklist: String?
-    let type: ArtistType?
-    let role: Role?
+    let type, role: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, link, share, picture
@@ -108,19 +91,4 @@ struct Contributor: Codable {
         case pictureXl = "picture_xl"
         case radio, tracklist, type, role
     }
-}
-
-enum Role: String, Codable {
-    case featured = "Featured"
-    case main = "Main"
-}
-
-enum TitleVersion: String, Codable {
-    case empty = ""
-    case remix = "(Remix)"
-    case titleVersionREMIX = "(REMIX)"
-}
-
-enum DatumType: String, Codable {
-    case track = "track"
 }

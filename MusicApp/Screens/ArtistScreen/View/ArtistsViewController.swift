@@ -22,10 +22,9 @@ class ArtistsViewController: UIViewController {
         
     }()
     
+    let viewModel = ArtistsViewModel()
     
     var genreId: Int?
-    
-    var artistsResponseModel: ArtistsResponseModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +36,7 @@ class ArtistsViewController: UIViewController {
             make.left.right.equalToSuperview()
         }
         
-        let viewModel = ArtistsViewModel()
-        viewModel.getArtistsData(genreId: genreId) { responseModel in
-            print(responseModel)
-            self.artistsResponseModel = responseModel
+        viewModel.getArtistsData(genreId: genreId) {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -49,51 +45,54 @@ class ArtistsViewController: UIViewController {
         }
         
     }
+    
+    private func setupCell(cell: UICollectionViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? ArtistsCollectionCell {
+            cell.backgroundColor = .clear
+            if let imageUrl = viewModel.getArtistsPicture(row: indexPath.row) {
+                let url = URL(string: imageUrl)
+                cell.imageView.kf.setImage(with: url)
+            }
+            
+            if let name = viewModel.getArtistsItem(row: indexPath.row) {
+                cell.labelView.text = name
+            }
+        }
+    }
 }
     
 extension ArtistsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return artistsResponseModel?.artistsList?.count ?? 0
+        viewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        
-        if let cell = cell as? ArtistsCollectionCell {
-            cell.backgroundColor = .clear
-            if let imageUrl = artistsResponseModel?.artistsList?[indexPath.row].picture {
-                let url = URL(string: imageUrl)
-                cell.imageView.kf.setImage(with: url)
-            }
-            if let name = artistsResponseModel?.artistsList?[indexPath.row].name {
-                cell.labelView.text = name
-            }
-        }
+        setupCell(cell: cell, at: indexPath)
         return cell
     }
 }
 
 extension ArtistsViewController: UICollectionViewDelegate {
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
             let artistDetailViewController = ArtistDetailViewController()
-            artistDetailViewController.artistId = artistsResponseModel?.artistsList?[indexPath.row].id
+            artistDetailViewController.artistId = viewModel.artistsResponseModel?.artistsList?[indexPath.row].id
             navigationController?.pushViewController(artistDetailViewController, animated: true)
         }
-            
-            
 }
 
 extension ArtistsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width/2) - 2, height: view.frame.width / 2)
+        viewModel.sizeForItemAt(width: view.frame.width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        viewModel.minimumInteritemSpacingForSection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        viewModel.minimumLineSpacingForSection
     }
 }
 
