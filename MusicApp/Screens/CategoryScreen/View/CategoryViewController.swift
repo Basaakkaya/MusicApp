@@ -23,8 +23,8 @@ class CategoryViewController: UIViewController {
         
     }()
     
-    var dictionary = [String: Any]()
-    
+    var categoryResponseModel: CategoryResponseModel?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,9 +37,9 @@ class CategoryViewController: UIViewController {
         }
         
         let viewModel = CategoryViewModel()
-        viewModel.getCategoryData { responseDict in
-            print(responseDict)
-            self.dictionary = responseDict
+        viewModel.getCategoryData { responseModel in
+            print(responseModel)
+            self.categoryResponseModel = responseModel
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -53,19 +53,19 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (dictionary.values.first as? [Any])?.count ?? 0
+        return categoryResponseModel?.categoryList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         if let cell = cell as? CategoryCollectionCell {
-            cell.backgroundColor = .cyan
-            if let imageUrl = (dictionary.values.first as? [[String : Any]])?[indexPath.row]["picture"] as? String {
+            cell.backgroundColor = .clear
+            if let imageUrl = categoryResponseModel?.categoryList?[indexPath.row].picture {
                 let url = URL(string: imageUrl)
                 cell.imageView.kf.setImage(with: url)
             }
-            if let name = (dictionary.values.first as? [[String : Any]])?[indexPath.row]["name"] as? String {
+            if let name = categoryResponseModel?.categoryList?[indexPath.row].name {
                 cell.labelView.text = name
             }
         }
@@ -74,13 +74,12 @@ extension CategoryViewController: UICollectionViewDataSource {
 }
 
 extension CategoryViewController: UICollectionViewDelegate {
-    
-    //kategorilerin tıklanabilmesi için buraya bir func bulman gerek//
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
+        let genreId = categoryResponseModel?.categoryList?[indexPath.row].id
+        let artistsViewController = ArtistsViewController()
+        artistsViewController.genreId = genreId
+        navigationController?.pushViewController(artistsViewController, animated: true)
     }
-    
 }
 
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
