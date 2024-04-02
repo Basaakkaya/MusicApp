@@ -1,15 +1,14 @@
 //
-//  CategoryService.swift
+//  NetworkManager.swift
 //  MusicApp
 //
-//  Created by Başak Kaya on 2.11.2023.
+//  Created by Başak Kaya on 27.11.2023.
 //
 
 import Foundation
-import UIKit
 
-class CategoryService {
-    func fetchMusicData(url: String, onSuccess: @escaping(Dictionary<String, Any>) -> Void, onError: @escaping(String) -> Void) {
+class NetworkManager {
+    func fetchData(url: String, onSuccess: @escaping(Data) -> Void, onError: @escaping(String) -> Void) {
         
         let url = URL(string: url)
         
@@ -22,13 +21,10 @@ class CategoryService {
                 // 2.
                 if data != nil {
                     do {
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
                         //ASYNC
                         DispatchQueue.main.async {
-                        onSuccess(jsonResponse)
-                            
+                            onSuccess(data!)
                         }
-                        
                     } catch {
                         onError(error.localizedDescription)
                     }
