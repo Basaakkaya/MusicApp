@@ -22,9 +22,8 @@ class CategoryViewController: UIViewController {
         return collectionView
         
     }()
+    let viewModel = CategoryViewModel()
     
-    var categoryResponseModel: CategoryResponseModel?
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,10 +35,8 @@ class CategoryViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
         
-        let viewModel = CategoryViewModel()
-        viewModel.getCategoryData { responseModel in
-            print(responseModel)
-            self.categoryResponseModel = responseModel
+        
+        viewModel.getCategoryData {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -49,33 +46,39 @@ class CategoryViewController: UIViewController {
         
         
     }
+    
+    private func setupCell(cell: UICollectionViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? CategoryCollectionCell {
+            cell.backgroundColor = .clear
+            if let imageUrl = viewModel.getCategoryPicture(row: indexPath.row) {
+                let url = URL(string: imageUrl)
+                cell.imageView.kf.setImage(with: url)
+            }
+            
+            
+            if let name = viewModel.getCategoryItem(row: indexPath.row) {
+                cell.labelView.text = name
+            }
+        }
+    }
 }
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryResponseModel?.categoryList?.count ?? 0
+        viewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        
-        if let cell = cell as? CategoryCollectionCell {
-            cell.backgroundColor = .clear
-            if let imageUrl = categoryResponseModel?.categoryList?[indexPath.row].picture {
-                let url = URL(string: imageUrl)
-                cell.imageView.kf.setImage(with: url)
-            }
-            if let name = categoryResponseModel?.categoryList?[indexPath.row].name {
-                cell.labelView.text = name
-            }
-        }
+        setupCell(cell: cell, at: indexPath)
         return cell
     }
 }
 
 extension CategoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
-        let genreId = categoryResponseModel?.categoryList?[indexPath.row].id
+        
+        let genreId = viewModel.categoryResponseModel?.categoryList?[indexPath.row].id
         let artistsViewController = ArtistsViewController()
         artistsViewController.genreId = genreId
         navigationController?.pushViewController(artistsViewController, animated: true)
@@ -84,18 +87,18 @@ extension CategoryViewController: UICollectionViewDelegate {
 
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width/2) - 2 , height: view.frame.width / 2)
+        return viewModel.sizeForItemAt(width: view.frame.width)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        viewModel.minimumInteritemSpacingForSection
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        viewModel.minimumLineSpacingForSection
     }
 }

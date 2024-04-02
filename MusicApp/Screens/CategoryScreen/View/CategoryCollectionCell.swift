@@ -14,7 +14,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
 //        imageView.image = ...
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
