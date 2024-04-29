@@ -17,15 +17,15 @@ class ArtistDetailCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    var labelView: UILabel {
+    var albumNameLabelView: UILabel = {
         let labelView = UILabel()
         return labelView
-    }
+    }()
     
-    var collectionView: UICollectionView {
-        let collectionView = UICollectionView()
-        return collectionView
-    }
+    var dateLabelView: UILabel = {
+        let labelView = UILabel()
+        return labelView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,15 +36,36 @@ class ArtistDetailCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        albumNameLabelView.text = nil
+        
+    }
+    
     private func setup() {
         contentView.addSubview(imageView)
+        contentView.addSubview(albumNameLabelView)
+        contentView.backgroundColor = .white
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.systemGray2.cgColor
+        contentView.layer.cornerRadius = 10
+        
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.left.equalToSuperview()
             make.bottom.equalToSuperview()
+            make.width.equalToSuperview().dividedBy(3)
         }
         
+        albumNameLabelView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalTo(imageView.snp.right).offset(15)
+        }
         
-        
+
     }
 }

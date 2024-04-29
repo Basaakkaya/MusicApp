@@ -33,6 +33,10 @@ class ArtistsCollectionCell: UICollectionViewCell {
     private func setup() {
         contentView.addSubview(imageView)
         contentView.addSubview(labelView)
+        contentView.backgroundColor = .white
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.systemGray2.cgColor
+        contentView.layer.cornerRadius = 10
         
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview()

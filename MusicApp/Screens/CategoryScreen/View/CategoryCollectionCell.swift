@@ -23,6 +23,14 @@ class CategoryCollectionCell: UICollectionViewCell {
         return labelView
     }()
     
+    lazy var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.textAlignment = .center
+        titleLabel.text = "Kategoriler"
+        return titleLabel
+    
+}()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -35,6 +43,11 @@ class CategoryCollectionCell: UICollectionViewCell {
     private func setup() {
         contentView.addSubview(imageView)
         contentView.addSubview(labelView)
+        contentView.addSubview(titleLabel)
+        contentView.backgroundColor = .white
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.systemGray2.cgColor
+        contentView.layer.cornerRadius = 10
         
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -46,20 +59,12 @@ class CategoryCollectionCell: UICollectionViewCell {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+        
     }
-}
+    
+    }
 
 
-//class MyCell: UICollectionViewCell {
-//    
-//    
-//    static let reuseIdentifier = "MyCellReuseIdentifier"
-//    
-//    let textLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textAlignment = .center
-//        return label
-//    }()
-//    
-//}
+
+
+
