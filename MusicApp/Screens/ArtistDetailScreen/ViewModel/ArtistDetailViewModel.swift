@@ -34,15 +34,11 @@ class ArtistDetailViewModel {
             onError(error)
         }
     }
+  
     
     func getArtistPicture(row: Int) -> String? {
         let pictureUrlStr = artistDetailResponseModel?.pictureXl
         return pictureUrlStr
-    }
-    
-    func getArtistItem(row: Int) -> String? {
-        let artistItem = artistDetailResponseModel?.name
-        return artistItem!
     }
     
     func getAlbumId(row: Int) -> Int? {
@@ -55,8 +51,8 @@ class ArtistDetailViewModel {
     }
     
     func sizeForItemAt(width: CGFloat) -> CGSize {
-        let width = (width - minimumInteritemSpacingForSection)/2
-        return CGSize(width: width, height: width)
+        let yywidth = (width - 5)
+        return CGSize(width: yywidth , height: 100)
     }
     
     var minimumInteritemSpacingForSection: CGFloat {

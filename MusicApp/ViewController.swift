@@ -26,7 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
         view.addSubview(button)
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
         button.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.left.right.equalToSuperview().inset(100)

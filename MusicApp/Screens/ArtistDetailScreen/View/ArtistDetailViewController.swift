@@ -58,14 +58,15 @@ class ArtistDetailViewController: UIViewController {
     private func setupCell(cell: UICollectionViewCell, at indexPath: IndexPath) {
         if let cell = cell as? ArtistDetailCollectionCell {
             cell.backgroundColor = .clear
-            if let imageUrl = viewModel.albumList?[indexPath.row].coverMedium {
+            if let imageUrl = viewModel.albumList?[indexPath.row].coverSmall {
                 let url = URL(string: imageUrl)
                 cell.imageView.kf.setImage(with: url)
             }
             
-            if let name = viewModel.getArtistItem(row: indexPath.row) {
-                cell.labelView.text = name
+            if let name = viewModel.albumList?[indexPath.row].title {
+                cell.albumNameLabelView.text = name
             }
+            
         }
     }
     
@@ -111,6 +112,7 @@ extension ArtistDetailViewController: UICollectionViewDelegate {
         
         let albumViewController = AlbumViewController()
         albumViewController.albumId = viewModel.albumList?[indexPath.row].id
+        albumViewController.albumImage = viewModel.albumList?[indexPath.row].coverSmall
         navigationController?.pushViewController(albumViewController, animated: true)
     }
 }

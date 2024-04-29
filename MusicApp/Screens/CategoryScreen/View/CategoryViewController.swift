@@ -20,8 +20,15 @@ class CategoryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: cellId)
         return collectionView
-        
     }()
+    
+    lazy var titleLabel: UILabel = {
+        let view = UILabel()
+        view.textColor = .black
+        view.text = "Kategoriler"
+        return view
+    }()
+    
     let viewModel = CategoryViewModel()
     
     override func viewDidLoad() {
@@ -35,7 +42,6 @@ class CategoryViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
         
-        
         viewModel.getCategoryData {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -43,10 +49,20 @@ class CategoryViewController: UIViewController {
         } onError: { error in
             
         }
+        let button = UIButton()
+        button.setTitle("back", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(didBackButtonTapped), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        navigationItem.titleView = titleLabel
+    
         
         
     }
     
+    @objc private func didBackButtonTapped() {
+        tabBarController?.navigationController?.popViewController(animated: true)
+    }
     private func setupCell(cell: UICollectionViewCell, at indexPath: IndexPath) {
         if let cell = cell as? CategoryCollectionCell {
             cell.backgroundColor = .clear
