@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+protocol AlbumCollectionCellDelegate: AnyObject {
+    func reloadData()
+}
 class AlbumCollectionCell: UICollectionViewCell {
     
     lazy var textLabel: UILabel = {
@@ -37,10 +40,21 @@ class AlbumCollectionCell: UICollectionViewCell {
         return likeButton
     }()
     
-    @objc func didButtonTapped(_ sender: UIButton) {
-        sender.isSelected.toggle()
-       print("Tapped")
+    var trackTitle: String? {
+        didSet {
+            guard let trackTitle else {
+                return
+            }
+            textLabel.text = trackTitle
+            if var list = UserDefaults.standard.array(forKey: "songNameList") as? [String] {
+                if list.contains(trackTitle) {
+                    likeButton.isSelected = true
+                }
+            }
+        }
     }
+    
+    weak var delegate: AlbumCollectionCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,6 +63,11 @@ class AlbumCollectionCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        likeButton.isSelected = false
     }
     
     private func setup() {
@@ -86,7 +105,26 @@ class AlbumCollectionCell: UICollectionViewCell {
         }
     }
     
-    
-    
-    
+    @objc func didButtonTapped(_ sender: UIButton) {
+        guard let trackTitle = trackTitle else {
+            return
+        }
+        sender.isSelected.toggle()
+        if var list = UserDefaults.standard.array(forKey: "songNameList") as? [String] {
+            if !list.contains(trackTitle) {
+                list.append(trackTitle)
+            } else {
+                for (index,item) in list.enumerated() {
+                    if item == trackTitle {
+                        list.remove(at: index)
+                    }
+                }
+            }
+            UserDefaults.standard.set(list, forKey: "songNameList")
+        } else {
+            let list = [trackTitle]
+            UserDefaults.standard.set(list, forKey: "songNameList")
+        }
+        delegate?.reloadData()
+    }
 }

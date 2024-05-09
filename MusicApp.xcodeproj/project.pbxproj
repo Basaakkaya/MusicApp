@@ -38,6 +38,7 @@
 		3DE81E832BD057F9003907EF /* SongCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE81E822BD057F9003907EF /* SongCollectionCell.swift */; };
 		3DF1F10B2B693D6E003172E8 /* ArtistsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1F10A2B693D6E003172E8 /* ArtistsCollectionCell.swift */; };
 		3DF1F10D2B6ADA2E003172E8 /* CategoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1F10C2B6ADA2E003172E8 /* CategoryResponseModel.swift */; };
+		3DFE8C0F2BE96B81006EA307 /* LikedSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		3DE81E822BD057F9003907EF /* SongCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCollectionCell.swift; sourceTree = "<group>"; };
 		3DF1F10A2B693D6E003172E8 /* ArtistsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCollectionCell.swift; sourceTree = "<group>"; };
 		3DF1F10C2B6ADA2E003172E8 /* CategoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponseModel.swift; sourceTree = "<group>"; };
+		3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSongViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 			children = (
 				3D8A2E852B5852530026C4C9 /* TabBarController.swift */,
 				3D8A2E872B5853D00026C4C9 /* LikedSongViewController.swift */,
+				3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */,
 				3DA23B772AF43DCF00D91032 /* CategoryScreen */,
 				3DA23B762AF43D9B00D91032 /* ArtistScreen */,
 				3D5AD6982B7AA7CA0061BD3B /* ArtistDetailScreen */,
@@ -411,6 +414,7 @@
 				3DA23B812AF43F0500D91032 /* CategoryViewController.swift in Sources */,
 				3D8A2E882B5853D00026C4C9 /* LikedSongViewController.swift in Sources */,
 				3DA23B9F2AF445FC00D91032 /* SongViewModel.swift in Sources */,
+				3DFE8C0F2BE96B81006EA307 /* LikedSongViewModel.swift in Sources */,
 				3DA23B9D2AF445EE00D91032 /* SongViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
