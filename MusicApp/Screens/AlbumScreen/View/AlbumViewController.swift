@@ -44,6 +44,13 @@ class AlbumViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     private func setupCell(cell: UICollectionViewCell, at indexPath: IndexPath) {
         if let cell = cell as? AlbumCollectionCell {
             cell.backgroundColor = .clear
@@ -52,7 +59,7 @@ class AlbumViewController: UIViewController {
                 let url = URL(string: albumImage)
                 cell.imageView.kf.setImage(with: url)
             }
-            cell.textLabel.text = track?.title
+            cell.trackTitle = track?.title
         }
     
     }
