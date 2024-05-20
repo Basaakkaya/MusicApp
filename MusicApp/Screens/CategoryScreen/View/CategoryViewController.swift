@@ -19,12 +19,14 @@ class CategoryViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: viewModel.leftRightContentInset, bottom: 10, right: viewModel.leftRightContentInset)
         return collectionView
     }()
     
     lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = .black
+        view.font = .systemFont(ofSize: 18, weight: .bold)
         view.text = "Kategoriler"
         return view
     }()
@@ -55,9 +57,7 @@ class CategoryViewController: UIViewController {
         button.addTarget(self, action: #selector(didBackButtonTapped), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         navigationItem.titleView = titleLabel
-    
-        
-        
+
     }
     
     @objc private func didBackButtonTapped() {
@@ -70,8 +70,6 @@ class CategoryViewController: UIViewController {
                 let url = URL(string: imageUrl)
                 cell.imageView.kf.setImage(with: url)
             }
-            
-            
             if let name = viewModel.getCategoryItem(row: indexPath.row) {
                 cell.labelView.text = name
             }
@@ -95,8 +93,10 @@ extension CategoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
         
         let genreId = viewModel.categoryResponseModel?.categoryList?[indexPath.row].id
+        let genreName = viewModel.categoryResponseModel?.categoryList?[indexPath.row].name
         let artistsViewController = ArtistsViewController()
         artistsViewController.genreId = genreId
+        artistsViewController.titleLabel.text = genreName
         navigationController?.pushViewController(artistsViewController, animated: true)
     }
 }

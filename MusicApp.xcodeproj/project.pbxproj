@@ -17,7 +17,6 @@
 		3D5AD6A52B7C1A7F0061BD3B /* ArtistDetailTracklistResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AD6A42B7C1A7F0061BD3B /* ArtistDetailTracklistResponseModel.swift */; };
 		3D8A2E792B56C2880026C4C9 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A2E782B56C2880026C4C9 /* CategoryCollectionCell.swift */; };
 		3D8A2E7C2B56C9980026C4C9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8A2E7B2B56C9980026C4C9 /* SnapKit */; };
-		3D8A2E7E2B56C9980026C4C9 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8A2E7D2B56C9980026C4C9 /* SnapKit-Dynamic */; };
 		3D8A2E842B5720180026C4C9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8A2E832B5720180026C4C9 /* Kingfisher */; };
 		3D8A2E862B5852530026C4C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A2E852B5852530026C4C9 /* TabBarController.swift */; };
 		3D8A2E882B5853D00026C4C9 /* LikedSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A2E872B5853D00026C4C9 /* LikedSongViewController.swift */; };
@@ -34,12 +33,28 @@
 		3DBE9DF92AF3DD01005A3B25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE9DF82AF3DD01005A3B25 /* ViewController.swift */; };
 		3DBE9DFE2AF3DD03005A3B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE9DFD2AF3DD03005A3B25 /* Assets.xcassets */; };
 		3DBE9E012AF3DD03005A3B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE9DFF2AF3DD03005A3B25 /* LaunchScreen.storyboard */; };
+		3DD6D95D2BED7E510059C7AF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */; };
+		3DD6D9602BED7E670059C7AF /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3DE81E812BD0574F003907EF /* SongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE81E802BD0574F003907EF /* SongResponseModel.swift */; };
 		3DE81E832BD057F9003907EF /* SongCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE81E822BD057F9003907EF /* SongCollectionCell.swift */; };
 		3DF1F10B2B693D6E003172E8 /* ArtistsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1F10A2B693D6E003172E8 /* ArtistsCollectionCell.swift */; };
 		3DF1F10D2B6ADA2E003172E8 /* CategoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1F10C2B6ADA2E003172E8 /* CategoryResponseModel.swift */; };
 		3DFE8C0F2BE96B81006EA307 /* LikedSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DD6D95F2BED7E510059C7AF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3DD6D9602BED7E670059C7AF /* SnapKit-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3D2917402B6AE8CA00CE45EC /* ArtistsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponseModel.swift; sourceTree = "<group>"; };
@@ -82,7 +97,7 @@
 			files = (
 				3D8A2E842B5720180026C4C9 /* Kingfisher in Frameworks */,
 				3D8A2E7C2B56C9980026C4C9 /* SnapKit in Frameworks */,
-				3D8A2E7E2B56C9980026C4C9 /* SnapKit-Dynamic in Frameworks */,
+				3DD6D95D2BED7E510059C7AF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +285,7 @@
 			children = (
 				3DBE9DF32AF3DD01005A3B25 /* MusicApp */,
 				3DBE9DF22AF3DD01005A3B25 /* Products */,
+				3DD6D95B2BED7E510059C7AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,6 +326,13 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		3DD6D95B2BED7E510059C7AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,6 +343,7 @@
 				3DBE9DED2AF3DD01005A3B25 /* Sources */,
 				3DBE9DEE2AF3DD01005A3B25 /* Frameworks */,
 				3DBE9DEF2AF3DD01005A3B25 /* Resources */,
+				3DD6D95F2BED7E510059C7AF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,8 +352,8 @@
 			name = MusicApp;
 			packageProductDependencies = (
 				3D8A2E7B2B56C9980026C4C9 /* SnapKit */,
-				3D8A2E7D2B56C9980026C4C9 /* SnapKit-Dynamic */,
 				3D8A2E832B5720180026C4C9 /* Kingfisher */,
+				3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */,
 			);
 			productName = MusicApp;
 			productReference = 3DBE9DF12AF3DD01005A3B25 /* MusicApp.app */;
@@ -649,15 +673,15 @@
 			package = 3D8A2E7A2B56C9980026C4C9 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		3D8A2E7D2B56C9980026C4C9 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3D8A2E7A2B56C9980026C4C9 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		3D8A2E832B5720180026C4C9 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3D8A2E822B5720180026C4C9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D8A2E7A2B56C9980026C4C9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

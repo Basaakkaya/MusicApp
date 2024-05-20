@@ -14,6 +14,11 @@ class LikedSongViewModel {
         return list
     }
     
+    var albumImageUrlStringList: [String]? {
+        let list = UserDefaults.standard.array(forKey: "albumImageList") as? [String]
+        return list
+    }
+    
     var numberOfItems: Int {
         return songNameList?.count ?? 0
     }

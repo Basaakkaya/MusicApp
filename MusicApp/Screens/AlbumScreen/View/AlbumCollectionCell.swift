@@ -54,6 +54,18 @@ class AlbumCollectionCell: UICollectionViewCell {
         }
     }
     
+    var albumImageUrlString: String? {
+        didSet {
+            guard let albumImageUrlString else {
+                return
+            }
+            let url = URL(string: albumImageUrlString)
+            imageView.kf.setImage(with: url)
+        }
+    }
+    
+    
+    
     weak var delegate: AlbumCollectionCellDelegate?
     
     override init(frame: CGRect) {
@@ -105,11 +117,7 @@ class AlbumCollectionCell: UICollectionViewCell {
         }
     }
     
-    @objc func didButtonTapped(_ sender: UIButton) {
-        guard let trackTitle = trackTitle else {
-            return
-        }
-        sender.isSelected.toggle()
+    fileprivate func setSongNameToUserDefault(_ trackTitle: String) {
         if var list = UserDefaults.standard.array(forKey: "songNameList") as? [String] {
             if !list.contains(trackTitle) {
                 list.append(trackTitle)
@@ -125,6 +133,35 @@ class AlbumCollectionCell: UICollectionViewCell {
             let list = [trackTitle]
             UserDefaults.standard.set(list, forKey: "songNameList")
         }
+    }
+    
+    fileprivate func setAlbumImageToUserDefault(_ albumImageUrlString: String) {
+        if var list = UserDefaults.standard.array(forKey: "albumImageList") as? [String] {
+            if !list.contains(albumImageUrlString) {
+                list.append(albumImageUrlString)
+            } else {
+                for (index,item) in list.enumerated() {
+                    if item == albumImageUrlString {
+                        list.remove(at: index)
+                    }
+                }
+            }
+            UserDefaults.standard.set(list, forKey: "albumImageList")
+        } else {
+            let list = [albumImageUrlString]
+            UserDefaults.standard.set(list, forKey: "albumImageList")
+        }
+    }
+    
+    @objc func didButtonTapped(_ sender: UIButton) {
+        if let trackTitle = trackTitle {
+            setSongNameToUserDefault(trackTitle)
+        }
+        
+        if let albumImageUrlString {
+            setAlbumImageToUserDefault(albumImageUrlString)
+        }
+        sender.isSelected.toggle()
         delegate?.reloadData()
     }
 }

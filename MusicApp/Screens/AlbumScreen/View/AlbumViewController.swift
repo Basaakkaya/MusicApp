@@ -55,13 +55,9 @@ class AlbumViewController: UIViewController {
         if let cell = cell as? AlbumCollectionCell {
             cell.backgroundColor = .clear
             let track = viewModel.tracklist?[indexPath.row]
-            if let albumImage {
-                let url = URL(string: albumImage)
-                cell.imageView.kf.setImage(with: url)
-            }
             cell.trackTitle = track?.title
+            cell.albumImageUrlString = albumImage
         }
-    
     }
     
     private func getAlbumDetail() {

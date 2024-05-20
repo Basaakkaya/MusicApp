@@ -13,6 +13,8 @@ class ArtistDetailCollectionCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -21,7 +23,7 @@ class ArtistDetailCollectionCell: UICollectionViewCell {
         let labelView = UILabel()
         return labelView
     }()
-    
+
     var dateLabelView: UILabel = {
         let labelView = UILabel()
         return labelView
@@ -48,13 +50,17 @@ class ArtistDetailCollectionCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(albumNameLabelView)
         contentView.backgroundColor = .white
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderWidth = 0.5
         contentView.layer.borderColor = UIColor.systemGray2.cgColor
         contentView.layer.cornerRadius = 10
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 0.2
+        contentView.layer.shadowRadius = 10
+        contentView.layer.shadowOffset = .zero
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview()
+            make.top.equalToSuperview().inset(5)
+            make.left.equalToSuperview().inset(5)
             make.bottom.equalToSuperview()
             make.width.equalToSuperview().dividedBy(3)
         }
@@ -62,7 +68,7 @@ class ArtistDetailCollectionCell: UICollectionViewCell {
         albumNameLabelView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(5)
             make.left.equalTo(imageView.snp.right).offset(15)
         }
         

@@ -9,7 +9,6 @@ import Foundation
 
  class AlbumViewModel {
     
-  //   var albumList: [Album]?
      var tracklist: [TracksDatum]?
      
      func getAlbumDetail(albumId: Int?, onSuccess: @escaping() -> Void, onError: @escaping(String) -> Void) {

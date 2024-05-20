@@ -22,6 +22,14 @@ class LikedSongViewController: UIViewController {
         
     }()
     
+    lazy var titleLabel: UILabel = {
+        let view = UILabel()
+        view.textColor = .black
+        view.font = .systemFont(ofSize: 18, weight: .bold)
+        view.text = "Beğenilenler"
+        return view
+    }()
+    
     let viewModel = LikedSongViewModel()
     
     var albumId: Int?
@@ -33,13 +41,12 @@ class LikedSongViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(collectionView)
         
-        
         collectionView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.left.right.equalToSuperview()
         }
-      
+        navigationItem.titleView = titleLabel
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +60,8 @@ class LikedSongViewController: UIViewController {
         if let cell = cell as? AlbumCollectionCell {
             cell.backgroundColor = .clear
             let songName = viewModel.songNameList?[indexPath.row]
+            let albumImageUrlString = viewModel.albumImageUrlStringList?[indexPath.row]
+            cell.albumImageUrlString = albumImageUrlString
             cell.trackTitle = songName
             cell.likeButton.isSelected = true
             cell.delegate = self

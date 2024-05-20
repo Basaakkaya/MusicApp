@@ -51,15 +51,19 @@ class ArtistDetailViewModel {
     }
     
     func sizeForItemAt(width: CGFloat) -> CGSize {
-        let yywidth = (width - 5)
+        let yywidth = (width - 5 - 2*leftRightContentInset)
         return CGSize(width: yywidth , height: 100)
     }
     
     var minimumInteritemSpacingForSection: CGFloat {
-        5
+        20
     }
     
     var minimumLineSpacingForSection: CGFloat {
-        5
+        20
+    }
+    
+    var leftRightContentInset: CGFloat {
+        10
     }
 }

@@ -13,7 +13,8 @@ class CategoryCollectionCell: UICollectionViewCell {
     //computed property
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.image = ...
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
         return imageView
     }()
@@ -22,14 +23,7 @@ class CategoryCollectionCell: UICollectionViewCell {
         let labelView = UILabel()
         return labelView
     }()
-    
-    lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textAlignment = .center
-        titleLabel.text = "Kategoriler"
-        return titleLabel
-    
-}()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,21 +37,24 @@ class CategoryCollectionCell: UICollectionViewCell {
     private func setup() {
         contentView.addSubview(imageView)
         contentView.addSubview(labelView)
-        contentView.addSubview(titleLabel)
         contentView.backgroundColor = .white
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderWidth = 0.5
         contentView.layer.borderColor = UIColor.systemGray2.cgColor
         contentView.layer.cornerRadius = 10
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 0.2
+        contentView.layer.shadowRadius = 10
+        contentView.layer.shadowOffset = .zero
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.top.equalToSuperview().inset(5)
+            make.left.right.equalToSuperview().inset(5)
         }
         
         labelView.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(5)
+            make.bottom.equalToSuperview().inset(5)
         }
         
     }
