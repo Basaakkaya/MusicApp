@@ -18,8 +18,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let songTab = CategoryViewController()
-        let likeTab = LikedSongViewController()
+        let songTab = UINavigationController(rootViewController: CategoryViewController())
+        let likeTab = UINavigationController(rootViewController: LikedSongViewController())
         
         let songTabbarItem = UITabBarItem(title: "song", image: UIImage(systemName: "music.note"), selectedImage: UIImage(named: "song.fill"))
         songTab.tabBarItem = songTabbarItem

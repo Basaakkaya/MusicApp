@@ -17,7 +17,6 @@
 		3D5AD6A52B7C1A7F0061BD3B /* ArtistDetailTracklistResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AD6A42B7C1A7F0061BD3B /* ArtistDetailTracklistResponseModel.swift */; };
 		3D8A2E792B56C2880026C4C9 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A2E782B56C2880026C4C9 /* CategoryCollectionCell.swift */; };
 		3D8A2E7C2B56C9980026C4C9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8A2E7B2B56C9980026C4C9 /* SnapKit */; };
-		3D8A2E7E2B56C9980026C4C9 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8A2E7D2B56C9980026C4C9 /* SnapKit-Dynamic */; };
 		3D8A2E842B5720180026C4C9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8A2E832B5720180026C4C9 /* Kingfisher */; };
 		3D8A2E862B5852530026C4C9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A2E852B5852530026C4C9 /* TabBarController.swift */; };
 		3D8A2E882B5853D00026C4C9 /* LikedSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A2E872B5853D00026C4C9 /* LikedSongViewController.swift */; };
@@ -29,15 +28,33 @@
 		3DA23B982AF4455900D91032 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA23B972AF4455900D91032 /* AlbumViewController.swift */; };
 		3DA23B9D2AF445EE00D91032 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA23B9C2AF445EE00D91032 /* SongViewController.swift */; };
 		3DA23B9F2AF445FC00D91032 /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA23B9E2AF445FC00D91032 /* SongViewModel.swift */; };
-		3DA23BA12AF4461400D91032 /* SongService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA23BA02AF4461400D91032 /* SongService.swift */; };
 		3DA5BC0B2B1539AC00F80F6D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5BC0A2B1539AC00F80F6D /* NetworkManager.swift */; };
 		3DBE9DF52AF3DD01005A3B25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE9DF42AF3DD01005A3B25 /* AppDelegate.swift */; };
 		3DBE9DF92AF3DD01005A3B25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE9DF82AF3DD01005A3B25 /* ViewController.swift */; };
 		3DBE9DFE2AF3DD03005A3B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE9DFD2AF3DD03005A3B25 /* Assets.xcassets */; };
 		3DBE9E012AF3DD03005A3B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE9DFF2AF3DD03005A3B25 /* LaunchScreen.storyboard */; };
+		3DD6D95D2BED7E510059C7AF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */; };
+		3DD6D9602BED7E670059C7AF /* SnapKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3DE81E812BD0574F003907EF /* SongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE81E802BD0574F003907EF /* SongResponseModel.swift */; };
+		3DE81E832BD057F9003907EF /* SongCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE81E822BD057F9003907EF /* SongCollectionCell.swift */; };
 		3DF1F10B2B693D6E003172E8 /* ArtistsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1F10A2B693D6E003172E8 /* ArtistsCollectionCell.swift */; };
 		3DF1F10D2B6ADA2E003172E8 /* CategoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1F10C2B6ADA2E003172E8 /* CategoryResponseModel.swift */; };
+		3DFE8C0F2BE96B81006EA307 /* LikedSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DD6D95F2BED7E510059C7AF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3DD6D9602BED7E670059C7AF /* SnapKit-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3D2917402B6AE8CA00CE45EC /* ArtistsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponseModel.swift; sourceTree = "<group>"; };
@@ -59,7 +76,6 @@
 		3DA23B972AF4455900D91032 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		3DA23B9C2AF445EE00D91032 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		3DA23B9E2AF445FC00D91032 /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
-		3DA23BA02AF4461400D91032 /* SongService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongService.swift; sourceTree = "<group>"; };
 		3DA5BC0A2B1539AC00F80F6D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3DBE9DF12AF3DD01005A3B25 /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBE9DF42AF3DD01005A3B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +83,11 @@
 		3DBE9DFD2AF3DD03005A3B25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DBE9E002AF3DD03005A3B25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DBE9E022AF3DD03005A3B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE81E802BD0574F003907EF /* SongResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResponseModel.swift; sourceTree = "<group>"; };
+		3DE81E822BD057F9003907EF /* SongCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCollectionCell.swift; sourceTree = "<group>"; };
 		3DF1F10A2B693D6E003172E8 /* ArtistsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCollectionCell.swift; sourceTree = "<group>"; };
 		3DF1F10C2B6ADA2E003172E8 /* CategoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponseModel.swift; sourceTree = "<group>"; };
+		3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedSongViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +97,7 @@
 			files = (
 				3D8A2E842B5720180026C4C9 /* Kingfisher in Frameworks */,
 				3D8A2E7C2B56C9980026C4C9 /* SnapKit in Frameworks */,
-				3D8A2E7E2B56C9980026C4C9 /* SnapKit-Dynamic in Frameworks */,
+				3DD6D95D2BED7E510059C7AF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +208,6 @@
 				3DA23B992AF4456400D91032 /* Model */,
 				3DA5BC082B14CCAB00F80F6D /* View */,
 				3DA23B9A2AF445AE00D91032 /* ViewModel */,
-				3DA23B9B2AF445CA00D91032 /* Network */,
 			);
 			path = SongScreen;
 			sourceTree = "<group>";
@@ -213,6 +231,7 @@
 		3DA23B992AF4456400D91032 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DE81E802BD0574F003907EF /* SongResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,14 +242,6 @@
 				3DA23B9E2AF445FC00D91032 /* SongViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3DA23B9B2AF445CA00D91032 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				3DA23BA02AF4461400D91032 /* SongService.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		3DA5BC052B14CB1D00F80F6D /* View */ = {
@@ -264,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				3DA23B9C2AF445EE00D91032 /* SongViewController.swift */,
+				3DE81E822BD057F9003907EF /* SongCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +285,7 @@
 			children = (
 				3DBE9DF32AF3DD01005A3B25 /* MusicApp */,
 				3DBE9DF22AF3DD01005A3B25 /* Products */,
+				3DD6D95B2BED7E510059C7AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -303,6 +316,7 @@
 			children = (
 				3D8A2E852B5852530026C4C9 /* TabBarController.swift */,
 				3D8A2E872B5853D00026C4C9 /* LikedSongViewController.swift */,
+				3DFE8C0E2BE96B81006EA307 /* LikedSongViewModel.swift */,
 				3DA23B772AF43DCF00D91032 /* CategoryScreen */,
 				3DA23B762AF43D9B00D91032 /* ArtistScreen */,
 				3D5AD6982B7AA7CA0061BD3B /* ArtistDetailScreen */,
@@ -310,6 +324,13 @@
 				3DA23B8F2AF444B800D91032 /* SongScreen */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		3DD6D95B2BED7E510059C7AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +343,7 @@
 				3DBE9DED2AF3DD01005A3B25 /* Sources */,
 				3DBE9DEE2AF3DD01005A3B25 /* Frameworks */,
 				3DBE9DEF2AF3DD01005A3B25 /* Resources */,
+				3DD6D95F2BED7E510059C7AF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,8 +352,8 @@
 			name = MusicApp;
 			packageProductDependencies = (
 				3D8A2E7B2B56C9980026C4C9 /* SnapKit */,
-				3D8A2E7D2B56C9980026C4C9 /* SnapKit-Dynamic */,
 				3D8A2E832B5720180026C4C9 /* Kingfisher */,
+				3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */,
 			);
 			productName = MusicApp;
 			productReference = 3DBE9DF12AF3DD01005A3B25 /* MusicApp.app */;
@@ -396,10 +418,11 @@
 				3D5AD6A32B7B81C50061BD3B /* ArtistDetailCollectionCell.swift in Sources */,
 				3DBE9DF92AF3DD01005A3B25 /* ViewController.swift in Sources */,
 				3D5AD6952B7A586B0061BD3B /* AlbumResponseModel.swift in Sources */,
+				3DE81E812BD0574F003907EF /* SongResponseModel.swift in Sources */,
+				3DE81E832BD057F9003907EF /* SongCollectionCell.swift in Sources */,
 				3D5AD69A2B7AA82B0061BD3B /* ArtistDetailViewController.swift in Sources */,
 				3DA23B982AF4455900D91032 /* AlbumViewController.swift in Sources */,
 				3DF1F10D2B6ADA2E003172E8 /* CategoryResponseModel.swift in Sources */,
-				3DA23BA12AF4461400D91032 /* SongService.swift in Sources */,
 				3DF1F10B2B693D6E003172E8 /* ArtistsCollectionCell.swift in Sources */,
 				3D5AD6A52B7C1A7F0061BD3B /* ArtistDetailTracklistResponseModel.swift in Sources */,
 				3D8A2E862B5852530026C4C9 /* TabBarController.swift in Sources */,
@@ -415,6 +438,7 @@
 				3DA23B812AF43F0500D91032 /* CategoryViewController.swift in Sources */,
 				3D8A2E882B5853D00026C4C9 /* LikedSongViewController.swift in Sources */,
 				3DA23B9F2AF445FC00D91032 /* SongViewModel.swift in Sources */,
+				3DFE8C0F2BE96B81006EA307 /* LikedSongViewModel.swift in Sources */,
 				3DA23B9D2AF445EE00D91032 /* SongViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,15 +673,15 @@
 			package = 3D8A2E7A2B56C9980026C4C9 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		3D8A2E7D2B56C9980026C4C9 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3D8A2E7A2B56C9980026C4C9 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		3D8A2E832B5720180026C4C9 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3D8A2E822B5720180026C4C9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3DD6D95C2BED7E510059C7AF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D8A2E7A2B56C9980026C4C9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

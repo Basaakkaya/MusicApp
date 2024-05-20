@@ -19,16 +19,21 @@ class ArtistDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ArtistDetailCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: viewModel.leftRightContentInset, bottom: 10, right: viewModel.leftRightContentInset)
         return collectionView
-        
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let view = UILabel()
+        view.textColor = .black
+        view.font = .systemFont(ofSize: 18, weight: .bold)
+        return view
     }()
     
     let viewModel = ArtistDetailViewModel()
 
-        
     var artistId: Int?
-        
-    
+            
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -53,19 +58,21 @@ class ArtistDetailViewController: UIViewController {
             make.bottom.equalToSuperview()
             make.left.right.equalToSuperview()
         }
+        navigationItem.titleView = titleLabel
     }
     
     private func setupCell(cell: UICollectionViewCell, at indexPath: IndexPath) {
         if let cell = cell as? ArtistDetailCollectionCell {
             cell.backgroundColor = .clear
-            if let imageUrl = viewModel.albumList?[indexPath.row].coverMedium {
+            if let imageUrl = viewModel.albumList?[indexPath.row].coverSmall {
                 let url = URL(string: imageUrl)
                 cell.imageView.kf.setImage(with: url)
             }
             
-            if let name = viewModel.getArtistItem(row: indexPath.row) {
-                cell.labelView.text = name
+            if let name = viewModel.albumList?[indexPath.row].title {
+                cell.albumNameLabelView.text = name
             }
+            
         }
     }
     
@@ -103,14 +110,17 @@ extension ArtistDetailViewController: UICollectionViewDataSource {
         setupCell(cell: cell, at: indexPath)
         return cell
     }
-    
 }
 
 extension ArtistDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let albumViewController = AlbumViewController()
+        let genreName = viewModel.albumList?[indexPath.row].title
         albumViewController.albumId = viewModel.albumList?[indexPath.row].id
+        albumViewController.albumImage = viewModel.albumList?[indexPath.row].coverSmall
+        albumViewController.title = genreName
+        
         navigationController?.pushViewController(albumViewController, animated: true)
     }
 }

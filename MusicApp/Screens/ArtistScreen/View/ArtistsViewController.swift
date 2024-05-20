@@ -18,8 +18,16 @@ class ArtistsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(ArtistsCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: viewModel.leftRightContentInset, bottom: 10, right: viewModel.leftRightContentInset)
         return collectionView
         
+    }()
+    
+    lazy var titleLabel: UILabel = {
+        let view = UILabel()
+        view.textColor = .black
+        view.font = .systemFont(ofSize: 18, weight: .bold)
+        return view
     }()
     
     let viewModel = ArtistsViewModel()
@@ -43,6 +51,7 @@ class ArtistsViewController: UIViewController {
         } onError: { error in
             
         }
+        navigationItem.titleView = titleLabel
         
     }
     
@@ -78,6 +87,9 @@ extension ArtistsViewController: UICollectionViewDelegate {
             
             let artistDetailViewController = ArtistDetailViewController()
             artistDetailViewController.artistId = viewModel.artistsResponseModel?.artistsList?[indexPath.row].id
+            let genreName = viewModel.artistsResponseModel?.artistsList?[indexPath.row].name
+            artistDetailViewController.titleLabel.text = genreName
+            
             navigationController?.pushViewController(artistDetailViewController, animated: true)
         }
 }

@@ -7,113 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC888EA3-9F66-4E6D-B835-1E8372319A6E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MusicApp/Screens/ArtistScreen/View/ArtistsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E4C82FCF-B92C-4D0F-8A24-CA178BAF06BB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MusicApp/Screens/ArtistDetailScreen/View/ArtistDetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E4C82FCF-B92C-4D0F-8A24-CA178BAF06BB - 36b76dba421a2d92"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MusicApp.ArtistDetailViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "MusicApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/basakkaya/Desktop/Personal%20project/MusicApp/MusicApp/Screens/ArtistDetailScreen/View/ArtistDetailViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "888">
-               </Location>
-               <Location
-                  uuid = "E4C82FCF-B92C-4D0F-8A24-CA178BAF06BB - 36b76dba421a2d92"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MusicApp.ArtistDetailViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "MusicApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/basakkaya/Desktop/Personal%20project/MusicApp/MusicApp/Screens/ArtistDetailScreen/View/ArtistDetailViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "184">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E2276E58-30C1-467C-AC92-24781A7FE343"
+            uuid = "8A37A71F-4B12-40D1-AD4B-9B0EBB78400F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicApp/Screens/ArtistDetailScreen/ViewModel/ArtistDetailViewModel.swift"
+            filePath = "MusicApp/Screens/AlbumScreen/View/AlbumCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getArtistDetailTracklist(onSuccess:onError:)"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "didButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5C467B49-3B3D-4568-BF41-94AE6AD95A14"
+            uuid = "68D56E9C-CA38-4522-BA1E-A40C79FAE135"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicApp/Screens/ArtistDetailScreen/View/ArtistDetailViewController.swift"
+            filePath = "MusicApp/Screens/AlbumScreen/View/AlbumCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "setupCell(cell:at:)"
-            landmarkType = "7">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "albumImageUrlString"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "40EFD886-4DE4-4FC8-A89B-8991150A9425"
+            uuid = "3C1A0579-4E15-4F47-98FB-AB442CF43429"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicApp/Screens/ArtistDetailScreen/View/ArtistDetailViewController.swift"
+            filePath = "MusicApp/Screens/LikedSongViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "getArtistDetailTracklist()"
-            landmarkType = "7">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "albumImageUrlStringList"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
